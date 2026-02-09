@@ -9,6 +9,6 @@ const resources = {
 
 i18n
   .use(initReactI18next)
-  .init({ resources, lng: "hk", interpolation: { escapeValue: false } });
+  .init({ resources, lng: "en", interpolation: { escapeValue: false } });
 
 export default i18n;

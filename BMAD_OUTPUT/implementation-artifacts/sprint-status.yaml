@@ -10,7 +10,7 @@ development_status:
   1-1-initial-project-setup: "done"
   1-2-setup-auth-public-access: "done"
   1-3-user-signup-login: "done"
-  1-4-admin-role-management: "backlog"
+  1-4-admin-role-management: "done"
 
   # Epic 2: Core Data Pipeline
   2-1-raw-data-storage-schema: "backlog"

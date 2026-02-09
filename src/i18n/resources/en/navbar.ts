@@ -7,5 +7,6 @@ export const navbar = {
   news: "News",
   login: "Sign In",
   logout: "Logout",
-  welcome: "Welcome"
+  welcome: "Welcome",
+  loading: "Loading..."
 };
