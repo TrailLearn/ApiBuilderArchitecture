@@ -1,15 +1,14 @@
 import { ReactNode } from "react";
 import Navbar from "../Navbar";
-import { Outlet } from "react-router-dom";
-import { Toaster } from "@/components/ui/toaster";
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <Outlet />
-      <Toaster />
-    </>
+      <main className="flex-1 container mx-auto p-4">
+        {children}
+      </main>
+    </div>
   );
 };
 
