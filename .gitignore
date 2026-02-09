@@ -6,6 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+_bmad
+_bmad/*
+.gemini
+.gemini/*
 
 node_modules
 dist
@@ -23,3 +27,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/generated/prisma

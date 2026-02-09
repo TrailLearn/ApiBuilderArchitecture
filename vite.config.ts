@@ -10,4 +10,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-});
+  test: {
+    environment: 'happy-dom',
+    globals: true, // optionnel mais pratique
+  },
+} as any); // Type casting rapide pour éviter les conflits de types TS avec Vitest si non configuré

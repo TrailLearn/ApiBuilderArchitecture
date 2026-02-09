@@ -5,4 +5,7 @@ export const navbar = {
   projects: "Projects",
   services: "Services",
   news: "News",
+  login: "Sign In",
+  logout: "Logout",
+  welcome: "Welcome"
 };

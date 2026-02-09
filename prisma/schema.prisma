@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ScholarshipStatus {
+  PENDING
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+  NEEDS_REVIEW
+}
+
+model Scholarship {
+  id          String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title       String
+  amount      String?
+  description String?
+  sourceUrl   String            @map("source_url")
+  status      ScholarshipStatus @default(PENDING)
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @default(now()) @updatedAt @map("updated_at")
+
+  @@map("scholarships")
+  @@index([status])
+}
