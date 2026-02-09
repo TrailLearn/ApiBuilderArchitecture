@@ -12,8 +12,10 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/'); // UX: Redirect to home instead of login
+    navigate('/');
   };
+
+  const isAdmin = user?.app_metadata?.role === 'admin';
 
   return (
     <nav className="flex flex-row justify-between items-center p-4 border-b">
@@ -25,6 +27,9 @@ const Navbar = () => {
       <div className="flex flex-row items-center space-x-4">
         <ul className="flex flex-row space-x-4 hidden md:flex">
           <li><Link to="/">{t('home')}</Link></li>
+          {isAdmin && (
+            <li><Link to="/admin" className="text-red-600 font-semibold">Admin</Link></li>
+          )}
         </ul>
         
         <LanguageSwitchButton />

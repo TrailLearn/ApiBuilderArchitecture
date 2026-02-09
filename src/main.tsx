@@ -7,6 +7,9 @@ import "./i18n";
 
 import Login from "./pages/auth/Login.tsx";
 import Landing from "./pages/Landing.tsx";
+import AdminDashboard from "./pages/admin/Dashboard.tsx";
+import ReviewScholarship from "./pages/admin/ReviewScholarship.tsx";
+import AdminRoute from "./components/auth/AdminRoute.tsx";
 import { AuthProvider } from "./features/auth/AuthContext.tsx";
 
 const router = createBrowserRouter([
@@ -16,7 +19,13 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Landing /> }, // Landing page as default
       { path: "login", element: <Login /> },
-      // Autres routes futures ici (submit, admin, etc.)
+      {
+        element: <AdminRoute />,
+        children: [
+          { path: "admin", element: <AdminDashboard /> },
+          { path: "admin/review/:id", element: <ReviewScholarship /> },
+        ],
+      },
     ],
   },
 ]);

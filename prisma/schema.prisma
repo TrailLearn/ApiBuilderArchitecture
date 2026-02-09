@@ -7,7 +7,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 enum ScholarshipStatus {
@@ -16,6 +15,12 @@ enum ScholarshipStatus {
   PUBLISHED
   REJECTED
   NEEDS_REVIEW
+}
+
+enum IngestionStatus {
+  PENDING
+  PROCESSED
+  ERROR
 }
 
 model Scholarship {
@@ -30,4 +35,15 @@ model Scholarship {
 
   @@map("scholarships")
   @@index([status])
+}
+
+model RawScholarship {
+  id              String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  sourceId        String          @map("source_id")
+  payload         Json
+  ingestionStatus IngestionStatus @default(PENDING) @map("ingestion_status")
+  createdAt       DateTime        @default(now()) @map("created_at")
+
+  @@map("raw_scholarships")
+  @@index([ingestionStatus])
 }

@@ -13,9 +13,15 @@ development_status:
   1-4-admin-role-management: "done"
 
   # Epic 2: Core Data Pipeline
-  2-1-raw-data-storage-schema: "backlog"
-  2-2-ingestion-edge-function: "backlog"
-  2-3-normalization-trigger: "backlog"
+  2-1-raw-data-storage-schema: "done"
+  2-2-ingestion-edge-function: "done"
+  2-3-normalization-trigger: "done"
+
+  # Epic 3: Trust Center
+  3-1-admin-dashboard-list-view: "done"
+  3-2-review-edit-interface: "done"
+  3-3-approve-publish-workflow: "done"
+  3-4-rejection-workflow: "done"
 
 status_definitions:
   backlog: "Story identified but not yet detailed"

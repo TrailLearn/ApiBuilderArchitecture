@@ -17,3 +17,23 @@ export const getPublishedScholarships = async () => {
 
   return data as Scholarship[];
 };
+
+export const getScholarshipById = async (id: string) => {
+  const { data, error } = await supabase
+    .from('scholarships')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) throw error;
+  return data as Scholarship;
+};
+
+export const updateScholarship = async (id: string, updates: Partial<Scholarship>) => {
+  const { error } = await supabase
+    .from('scholarships')
+    .update(updates)
+    .eq('id', id);
+
+  if (error) throw error;
+};
